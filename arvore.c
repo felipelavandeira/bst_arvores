@@ -217,6 +217,40 @@ void mostrarNoRaiz(NO *tree){
 
 /* ------------------------------------------------ */
 
+//Mostrar ancestrais e descendentes de um nó
+void mostrarLigados(NO* tree, int valor) {
+
+  NO *aux = tree;
+
+  while (aux != NULL) {
+    if (valor == aux->dado)
+    break;
+    else if (valor < aux->dado)
+      aux = aux->esq;
+    else
+      aux = aux->dir;
+  } /* fim do while */
+
+  printf("Ancestral e descendentes do nó: %d", aux->dado);
+
+  if (aux->pai == NULL)
+    printf("O nó é raíz!\n");
+  else
+    printf("Nó pai: %d\n", aux->pai->dado);
+
+  if (aux->esq != NULL)
+    printf("Nó filho à esquerda: %d\n", aux->esq->dado);
+  else
+    printf("O nó não tem filho à esquerda\n");
+
+  if(aux->dir != NULL)
+    printf("Nó filho à direita: %d\n", aux->dir->dado);
+  else
+    printf("O nó não tem filho à direita\n");
+} /* fim de pesquisar */
+
+/* ------------------------------------------------ */
+
 int main () {
 
   NO *arvore;
@@ -253,6 +287,8 @@ int main () {
   printf("\n");
 
   pesquisar(arvore, 60);
+
+  mostrarLigados(arvore, 40);
 
   /*remover(&arvore, 78);
   emOrdem(arvore);
