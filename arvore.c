@@ -231,7 +231,7 @@ void mostrarLigados(NO* tree, int valor) {
       aux = aux->dir;
   } /* fim do while */
 
-  printf("Ancestral e descendentes do nó: %d", aux->dado);
+  printf("Ancestral e descendentes do nó: %d\n", aux->dado);
 
   if (aux->pai == NULL)
     printf("O nó é raíz!\n");
