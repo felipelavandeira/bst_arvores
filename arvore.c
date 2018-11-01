@@ -207,6 +207,16 @@ void mostrarNosFolha(NO *tree){
 
 /* ------------------------------------------------ */
 
+//Mostrar nós raíz
+void mostrarNoRaiz(NO *tree){
+  if(!estaVazia(tree))
+    printf("%i ", tree->dado);
+  else
+    printf("A árvore não tem nó raíz");
+}
+
+/* ------------------------------------------------ */
+
 int main () {
 
   NO *arvore;
@@ -238,6 +248,9 @@ int main () {
   mostrarNosFolha(arvore);
   printf("\n");
 
+  printf("Nó raíz da arvore: ");
+  mostrarNoRaiz(arvore);
+  printf("\n");
 
   pesquisar(arvore, 60);
 
