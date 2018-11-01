@@ -188,9 +188,25 @@ void remover(NO **tree, int valor){
     //removerNoFilhosMultiplos(*aux);
   }
 }
+/* ------------------------------------------------ */
 
+//Mostrar nós folha
+void mostrarNosFolha(NO *tree){
+  if(tree == NULL)
+    return;
+
+  if(tree->esq == NULL && tree->dir == NULL)
+    printf("%i ", tree->dado);
+
+  if(tree->esq != NULL)
+    mostrarNosFolha(tree->esq);
+
+  if(tree->dir != NULL)
+    mostrarNosFolha(tree->dir);
+}
 
 /* ------------------------------------------------ */
+
 int main () {
 
   NO *arvore;
@@ -208,16 +224,24 @@ int main () {
   inserir(&arvore, 55);
   inserir(&arvore, 52);
 
+  printf("Pré Ordem: ");
   preOrdem(arvore);
   printf("\n");
+  printf("Pos Ordem: ");
   posOrdem(arvore);
   printf("\n");
+  printf("Em Ordem: ");
   emOrdem(arvore);
   printf("\n");
 
+  printf("Nós folha: ");
+  mostrarNosFolha(arvore);
+  printf("\n");
+
+
   pesquisar(arvore, 60);
 
-  remover(&arvore, 78);
+  /*remover(&arvore, 78);
   emOrdem(arvore);
   printf("\n");
 
@@ -227,7 +251,7 @@ int main () {
 
   remover(&arvore, 40);
   emOrdem(arvore);
-  printf("\n");
+  printf("\n"); */
 
 
 } /* fim do main */
