@@ -250,7 +250,15 @@ void mostrarLigados(NO* tree, int valor) {
 } /* fim de pesquisar */
 
 /* ------------------------------------------------ */
-
+//mostra nohs ramos
+void mostrarNosRamos(NO *tree){
+	if (!estaVazia(tree)) {
+    	mostrarNosRamos(tree->esq);
+    	if((((tree->dir!=NULL)&&(tree->esq!=NULL)) || ((tree->dir!=NULL) || (tree->esq!=NULL)))&&(tree->pai!=NULL))printf("%d ", tree->dado);
+    	mostrarNosRamos(tree->dir);
+    }
+}//fim MostraNosRamos
+/* ------------------------------------------------ */
 int main () {
 
   NO *arvore;
@@ -288,7 +296,9 @@ int main () {
 
   pesquisar(arvore, 60);
 
-  mostrarLigados(arvore, 40);
+  printf("Nos ramo: ");
+  mostrarNosRamos(arvore);
+  printf("\n");
 
   /*remover(&arvore, 78);
   emOrdem(arvore);
