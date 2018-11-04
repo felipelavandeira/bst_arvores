@@ -14,10 +14,10 @@ estrutura de árvore e/ou grafo.</p>
     <ul>
       <li>a representação da árvore (por aninhamento, ou barras).</li>
       <li><strong>quem é o nó raiz;</strong></li>
-      <li>quem são os nós ramo;</li>
+      <li><strong>quem são os nós ramo;</strong></li>
       <li><strong>quem são os nós folha;</strong></li>
       <li>qual é o grau, a altura e a profundidade da árvore;</li>
-      <li>quem são os ancestrais e os descendentes de um determinado nó;</li>
+      <li><strong>quem são os ancestrais e os descendentes de um determinado nó;</strong></li>
       <li>qual é o grau, a altura, a profundidade e o nível de um determinado nó;</li>
       <li><strong>o resultado das buscas pré e pós ordem – e, se a árvore for binária, também em ordem.</strong></li>
     </ul>
