@@ -218,35 +218,55 @@ void mostrarNoRaiz(NO *tree){
 /* ------------------------------------------------ */
 
 //Mostrar ancestrais e descendentes de um nó
-void mostrarLigados(NO* tree, int valor) {
+void descEsq(NO* tree) {
+  NO *aux = tree;
+  while (aux->esq != NULL) {
+    aux = aux->esq;
+    printf("%d ", aux->dado);
+  } /* fim do while */
+} /* fim de descEsq */
+
+void descDir(NO* tree) {
+  NO *aux = tree;
+  while (aux->dir != NULL) {
+    aux = aux->dir;
+    printf("%d ", aux->dado);
+  } /* fim do while */
+} /* fim de descDir */
+
+void mostraAscDesc(NO* tree, int valor) {
 
   NO *aux = tree;
 
+  printf("Ancestrais de %d:\n", valor);
   while (aux != NULL) {
     if (valor == aux->dado)
     break;
-    else if (valor < aux->dado)
+    else if (valor < aux->dado){
+      printf("%d ", aux->dado);
       aux = aux->esq;
-    else
+    }else{
+      printf("%d ", aux->dado);
       aux = aux->dir;
+    }
   } /* fim do while */
+  printf("\n");
 
-  printf("Ancestral e descendentes do nó: %d\n", aux->dado);
+  printf("Descendentes de %d:\n", valor);
+  if (aux->esq == NULL && aux->dir == NULL) {
+    printf("O nó não tem descendentes, é um nó folha");
+    return;
+  }
 
-  if (aux->pai == NULL)
-    printf("O nó é raíz!\n");
-  else
-    printf("Nó pai: %d\n", aux->pai->dado);
+  if (aux->esq != NULL) {
+    descEsq(aux);
+  }
 
-  if (aux->esq != NULL)
-    printf("Nó filho à esquerda: %d\n", aux->esq->dado);
-  else
-    printf("O nó não tem filho à esquerda\n");
+  if (aux->dir != NULL) {
+    descDir(aux);
+  }
 
-  if(aux->dir != NULL)
-    printf("Nó filho à direita: %d\n", aux->dir->dado);
-  else
-    printf("O nó não tem filho à direita\n");
+  printf("\n");
 } /* fim de pesquisar */
 
 /* ------------------------------------------------ */
@@ -299,6 +319,8 @@ int main () {
   printf("Nos ramo: ");
   mostrarNosRamos(arvore);
   printf("\n");
+
+  mostraAscDesc(arvore, 40);
 
   /*remover(&arvore, 78);
   emOrdem(arvore);
