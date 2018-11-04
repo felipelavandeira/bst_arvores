@@ -264,9 +264,7 @@ void mostraAscDesc(NO* tree, int valor) {
 
   if (aux->dir != NULL) {
     descDir(aux);
-  }
-
-  printf("\n");
+  }  
 } /* fim de pesquisar */
 
 /* ------------------------------------------------ */
@@ -296,31 +294,39 @@ int main () {
   inserir(&arvore, 55);
   inserir(&arvore, 52);
 
+  printf("=================================\n");
   printf("Pré Ordem: ");
   preOrdem(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
+
+  printf("=================================\n");
   printf("Pos Ordem: ");
   posOrdem(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
+
+  printf("=================================\n");
   printf("Em Ordem: ");
   emOrdem(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
 
+  printf("=================================\n");
   printf("Nós folha: ");
   mostrarNosFolha(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
 
+  printf("=================================\n");
   printf("Nó raíz da arvore: ");
   mostrarNoRaiz(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
 
-  pesquisar(arvore, 60);
-
+  printf("=================================\n");
   printf("Nos ramo: ");
   mostrarNosRamos(arvore);
-  printf("\n");
+  printf("\n=================================\n\n");
 
+  printf("=================================\n");
   mostraAscDesc(arvore, 40);
+  printf("\n=================================\n\n");
 
   /*remover(&arvore, 78);
   emOrdem(arvore);
