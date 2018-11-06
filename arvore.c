@@ -264,7 +264,7 @@ void mostraAscDesc(NO* tree, int valor) {
 
   if (aux->dir != NULL) {
     descDir(aux);
-  }  
+  }
 } /* fim de pesquisar */
 
 /* ------------------------------------------------ */
@@ -280,26 +280,19 @@ void mostrarNosRamos(NO *tree){
 /* ------------------------------------------------ */
 //calcula grau
 int grau(NO* tree){
-	
+
 	if((tree->dir==NULL&&tree->esq==NULL)&& tree->pai == NULL)return 0;
-	
+
 	if(tree->dir!=NULL&&tree->esq!=NULL)return 2;
-	
+
 	if(!estaVazia(tree)){
 		if(tree->dir==NULL && tree->esq!= NULL) grau(tree->esq);
 		if(tree->dir!=NULL && tree->esq== NULL) grau(tree->esq);
 		return 1;
-	}	
+	}
 }//fim grau
 
 /* ------------------------------------------------ */
-//calcula altura/profundidade de uma arvore/subarvore
-int altura(NO *tree){
-   if((tree == NULL) || (tree->esq == NULL && tree->dir == NULL))
-       return 0;
-   else
-       return 1 + maior(altura(tree->esq), altura(tree->dir));
-}//maior
 int maior(int a, int b){
     if(a > b)
         return a;
@@ -307,7 +300,30 @@ int maior(int a, int b){
         return b;
 }//fim altura
 
+//calcula altura/profundidade de uma arvore/subarvore
+int altura(NO *tree){
+   if((tree == NULL) || (tree->esq == NULL && tree->dir == NULL))
+       return 0;
+   else
+       return 1 + maior(altura(tree->esq), altura(tree->dir));
+}//maior
+
 /*--------------------------------------------- */
+
+//calcula nivel de um noh
+
+int calculaNivel(NO* tree){
+	NO *aux=tree;
+	int lvl = 0;
+	while(!estaVazia(aux)){
+		lvl++;
+		aux=aux->pai;
+	}
+	return lvl;
+}//fim calculaNivel
+
+/*--------------------------------------------- */
+
 //calcula altura, grau, profundidade e nivel de um noh
 void alturaNoh(NO *tree, int noh){
 	NO *aux = pesquisar(tree, noh);
@@ -319,20 +335,32 @@ void alturaNoh(NO *tree, int noh){
 }//fim alturaNoh
 
 /*--------------------------------------------- */
-//calcula nivel de um noh
 
-int calculaNivel(NO* tree){
-	NO *aux=tree;
-	int lvl = 0;
-	while(!estaVazia(aux)){
-		lvl++;
-		aux=aux->pai;
-		
-	}
-	return lvl;
-}//fim calculaNivel
+int calculaQtdBarras(int nivel, int dado){
+  int espaco = 10, caracteres = sizeof(dado);
+  return espaco-(nivel-caracteres);
+}
 
+//representacao da arvore
+void exibeRep (NO *tree) {
+  int nivelNo, qtdBarras, i;
+  if (!estaVazia(tree)) {
+    nivelNo = calculaNivel(tree);
+    qtdBarras = calculaQtdBarras(nivelNo, tree->dado);
+
+    for(i = 0; i < nivelNo; i++)
+      printf(" ");
+    printf("%d", tree->dado);
+    for(i = 0; i < qtdBarras; i++)
+      printf("_");
+    printf("\n");
+    exibeRep(tree->esq);
+    exibeRep(tree->dir);
+  }
+
+} /* fim de preOrdem */
 /*--------------------------------------------- */
+
 int main () {
 
   NO *arvore;
@@ -376,7 +404,7 @@ int main () {
   printf("\n=================================\n\n");
 
   printf("=================================\n");
-  printf("Nos ramo: ");
+  printf("Nós ramo: ");
   mostrarNosRamos(arvore);
   printf("\n=================================\n\n");
 
@@ -385,14 +413,19 @@ int main () {
   printf("\n=================================\n\n");
 
    printf("=================================\n");
-  printf("altura/profundidade da arvore: %d \n", altura(arvore));
-  printf("grau da arvore: %d \n", grau(arvore));
+  printf("Altura/profundidade da árvore: %d \n", altura(arvore));
+  printf("Grau da árvore: %d \n", grau(arvore));
   printf("=================================\n\n");
-  
+
   printf("=================================\n");
   alturaNoh(arvore, 30);
   printf("=================================\n\n");
-  
+
+  printf("=================================\n\n");
+  printf("Representação da árvore: \n");
+  exibeRep(arvore);
+  printf("\n=================================\n\n");
+
   /*remover(&arvore, 78);
   emOrdem(arvore);
   printf("\n");
