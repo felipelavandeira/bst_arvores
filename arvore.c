@@ -276,7 +276,63 @@ void mostrarNosRamos(NO *tree){
     	mostrarNosRamos(tree->dir);
     }
 }//fim MostraNosRamos
+
 /* ------------------------------------------------ */
+//calcula grau
+int grau(NO* tree){
+	
+	if((tree->dir==NULL&&tree->esq==NULL)&& tree->pai == NULL)return 0;
+	
+	if(tree->dir!=NULL&&tree->esq!=NULL)return 2;
+	
+	if(!estaVazia(tree)){
+		if(tree->dir==NULL && tree->esq!= NULL) grau(tree->esq);
+		if(tree->dir!=NULL && tree->esq== NULL) grau(tree->esq);
+		return 1;
+	}	
+}//fim grau
+
+/* ------------------------------------------------ */
+//calcula altura/profundidade de uma arvore/subarvore
+int altura(NO *tree){
+   if((tree == NULL) || (tree->esq == NULL && tree->dir == NULL))
+       return 0;
+   else
+       return 1 + maior(altura(tree->esq), altura(tree->dir));
+}//maior
+int maior(int a, int b){
+    if(a > b)
+        return a;
+    else
+        return b;
+}//fim altura
+
+/*--------------------------------------------- */
+//calcula altura, grau, profundidade e nivel de um noh
+void alturaNoh(NO *tree, int noh){
+	NO *aux = pesquisar(tree, noh);
+	int lvl = calculaNivel(aux);
+	int prof =  lvl-1;
+	int alt = altura(aux);
+	int gr = grau(aux);
+	printf("Noh %d: \n Nivel: %d\n Profundidade: %d\n Altura: %d\n Grau: %d\n", noh,  lvl, prof, alt, gr);
+}//fim alturaNoh
+
+/*--------------------------------------------- */
+//calcula nivel de um noh
+
+int calculaNivel(NO* tree){
+	NO *aux=tree;
+	int lvl = 0;
+	while(!estaVazia(aux)){
+		lvl++;
+		aux=aux->pai;
+		
+	}
+	return lvl;
+}//fim calculaNivel
+
+/*--------------------------------------------- */
 int main () {
 
   NO *arvore;
@@ -328,6 +384,15 @@ int main () {
   mostraAscDesc(arvore, 40);
   printf("\n=================================\n\n");
 
+   printf("=================================\n");
+  printf("altura/profundidade da arvore: %d \n", altura(arvore));
+  printf("grau da arvore: %d \n", grau(arvore));
+  printf("=================================\n\n");
+  
+  printf("=================================\n");
+  alturaNoh(arvore, 30);
+  printf("=================================\n\n");
+  
   /*remover(&arvore, 78);
   emOrdem(arvore);
   printf("\n");
