@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-
-#include "Arvore-funcoes.c"
+#include "arvore-funcoes.c"
 
 /* ********************************************************** */
 /*  FUNCAO PRINCIPAL                                          */
@@ -14,10 +12,10 @@ int main () {
   int opcao = 0;
 
   inicializar(&arvore);
-  
+
   while(opcao <= 11){
 
-	    printf("****  ARVORE  ****\n"); 
+	    printf("****  ARVORE  ****\n");
 	    printf(" 1 - INSERIR NOS\n");
 	    printf(" 2 - PRE ORDEM\n");
 	    printf(" 3 - POS ORDEM\n");
@@ -32,15 +30,15 @@ int main () {
 	    printf("------------------------------------------------\n");
 	    printf("Escolha uma opcao: \n");
 	    printf("\n");
-	    
+
 	    scanf("%d", &opcao);
-	    fflush(stdin);
+	    //fflush(stdin);
 
 	    switch(opcao){
 	    	case 1:
 	    		printf("Insira os no na arvore\n");
   				printf("DIGITE 0 PARA PARAR A INSERCAO DE NOS\n");
-  
+          scanf("%d", &num);
 				while (num != 0) {
 				  	scanf("%d", &num);
 				  	if (num == 0) {
@@ -96,7 +94,7 @@ int main () {
 		  		printf("DIGITE UM NO PARA MOSTRAR ASCENDENTES E DESCENDENTES\n");
 		  		scanf("%d", &n1);
 		  		mostraAscDesc(arvore, n1);
-		  		printf("\n=================================\n\n");	
+		  		printf("\n=================================\n\n");
 		  		break;
 			case 10:
 				printf("=================================\n");
@@ -112,38 +110,13 @@ int main () {
   				printf("\n=================================\n\n");
 	      		break;
 	      	default:
-	      		printf("Opcao invalida!!!\n");
+	      		printf("Saindo do sistema...\n");
 	      		break;
 	    }
-	    
-	    printf("Pressione qualquer tecla para continuar...");
-	    getch();
-	    system("cls");
+
+	    //printf("Pressione qualquer tecla para continuar...");
+	    //getch();
+	    //system("clear");
 	}
-  
-  
-/*inserir(&arvore, 50);
-  inserir(&arvore, 40);
-  inserir(&arvore, 30);
-  inserir(&arvore, 60);
-  inserir(&arvore, 45);
-  inserir(&arvore, 14);
-  inserir(&arvore, 65);
-  inserir(&arvore, 78);
-  inserir(&arvore, 55);
-  inserir(&arvore, 52);
-*/
-
-  /*remover(&arvore, 78);
-  emOrdem(arvore);
-  printf("\n");
-
-  remover(&arvore, 30);
-  emOrdem(arvore);
-  printf("\n");
-
-  remover(&arvore, 40);
-  emOrdem(arvore);
-  printf("\n"); */
 
 } /* fim do main */

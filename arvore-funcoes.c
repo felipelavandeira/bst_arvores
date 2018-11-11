@@ -1,6 +1,6 @@
 #include <string.h>
-
-#include "Arvore.h"
+#include <stdlib.h>
+#include "arvore.h"
 /* ********************************************************** */
 /*  IMPLEMENTACAO DAS FUNCOES                                 */
 /* ********************************************************** */
@@ -17,7 +17,7 @@ void inicializar (NO **tree) {
 
 
 /* ********************************************************** */
-/*  verifica se a lista de alunos está vazia                  */
+/*  verifica se a lista de alunos estï¿½ vazia                  */
 /* ********************************************************** */
 int estaVazia (NO *tree) {
 
@@ -55,17 +55,17 @@ NO* pesquisar (NO* tree, int valor) {
 
 
 /* ********************************************************** */
-/*              Encontra o menor nó na arvore                 */
+/*              Encontra o menor nï¿½ na arvore                 */
 /* ********************************************************** */
 NO* encontrarMenor(NO* tree) {
   NO *aux = tree;
-  
+
   while (aux->esq != NULL) {
     aux = aux->esq;
   } /* fim do while */
-  
+
   return aux;
-  
+
 } /* fim de encontrarMenor */
 
 
@@ -112,7 +112,7 @@ void emOrdem (NO *tree) {
 
 
 /* ********************************************************** */
-/*                      Insere nó na Arvore                   */
+/*                      Insere nï¿½ na Arvore                   */
 /* ********************************************************** */
 void inserir (NO **tree, int valor) {
 
@@ -131,12 +131,12 @@ void inserir (NO **tree, int valor) {
   //se a arvore estiver vazia
   if (estaVazia(*tree)) {
     *tree = novo;
-    return;    
+    return;
   }else{
     while (aux != NULL) {
-      
+
 	  pai = aux;
-      
+
       if (valor == aux->dado){
         printf("O valor que vocÃª quer inserir jÃ¡ existe.\n");
         break;
@@ -146,10 +146,10 @@ void inserir (NO **tree, int valor) {
         aux = aux->dir;
       }
     } /* fim do while */
-    
+
     novo->pai = pai;
     aux = novo;
-    
+
     if (valor < pai->dado) {
       pai->esq = aux;
     }else{
@@ -161,10 +161,10 @@ void inserir (NO **tree, int valor) {
 
 
 /* ********************************************************** */
-/*                      Remove nó da Arvore                   */
+/*                      Remove nï¿½ da Arvore                   */
 /* ********************************************************** */
 void remover(NO **tree, int valor){
-	
+
   NO *aux;
   NO *pai;
   NO *menor;
@@ -218,15 +218,15 @@ void remover(NO **tree, int valor){
     aux->dado = numero;
     //removerNoFilhosMultiplos(*aux);
   }
-  
+
 } /* fim do remover */
 
 
 /* ********************************************************** */
-/*                  Mostra o nós das folhas                   */
+/*                  Mostra o nï¿½s das folhas                   */
 /* ********************************************************** */
 void mostrarNosFolha(NO *tree){
-	
+
   if(tree == NULL)
     return;
 
@@ -238,21 +238,21 @@ void mostrarNosFolha(NO *tree){
 
   if(tree->dir != NULL)
     mostrarNosFolha(tree->dir);
-    
+
 } /* fim mostrarNosFolha */
 
 
 
 /* ********************************************************** */
-/*                       Mostra o nó Raiz                     */
+/*                       Mostra o nï¿½ Raiz                     */
 /* ********************************************************** */
 void mostrarNoRaiz(NO *tree){
-	
+
   if(!estaVazia(tree))
     printf("%i ", tree->dado);
   else
     printf("A Ã¡rvore nÃ£o tem nÃ³ raÃ­z");
-    
+
 } /* fim mostrarNoRaiz */
 
 
@@ -261,29 +261,29 @@ void mostrarNoRaiz(NO *tree){
 /*                  Descendente Esquerdo                      */
 /* ********************************************************** */
 void descEsq(NO* tree) {
-	
+
   NO *aux = tree;
-  
+
   while (aux->esq != NULL) {
     aux = aux->esq;
     printf("%d ", aux->dado);
   }   /* fim do while */
-  
+
 } /* fim de descEsq */
 
 
 /* ********************************************************** */
 /*                    Descendente Direito                     */
 /* ********************************************************** */
-void descDir(NO* tree) { 
+void descDir(NO* tree) {
 
   NO *aux = tree;
-  
+
   while (aux->dir != NULL) {
     aux = aux->dir;
     printf("%d ", aux->dado);
   } /* fim do while */
-  
+
 } /* fim de descDir */
 
 
@@ -295,7 +295,7 @@ void mostraAscDesc(NO* tree, int valor) {
   NO *aux = tree;
 
   printf("Ancestrais de %d:\n", valor);
-  
+
   while (aux != NULL) {
     if (valor == aux->dado)
     break;
@@ -306,12 +306,12 @@ void mostraAscDesc(NO* tree, int valor) {
       printf("%d ", aux->dado);
       aux = aux->dir;
     }
-    
+
   } /* fim do while */
   printf("\n");
 
   printf("Descendentes de %d:\n", valor);
-  
+
   if (aux->esq == NULL && aux->dir == NULL) {
     printf("O nÃ³ nÃ£o tem descendentes, Ã© um nÃ³ folha");
     return;
@@ -324,21 +324,21 @@ void mostraAscDesc(NO* tree, int valor) {
   if (aux->dir != NULL) {
     descDir(aux);
   }
-  
+
 } /* fim de pesquisar */
 
 
 /* ********************************************************** */
-/*                    Mostrar Ramos do nó                     */
+/*                    Mostrar Ramos do nï¿½                     */
 /* ********************************************************** */
 void mostrarNosRamos(NO *tree){
-	
+
 	if (!estaVazia(tree)) {
     	mostrarNosRamos(tree->esq);
     	if((((tree->dir!=NULL)&&(tree->esq!=NULL)) || ((tree->dir!=NULL) || (tree->esq!=NULL)))&&(tree->pai!=NULL))printf("%d ", tree->dado);
     	mostrarNosRamos(tree->dir);
     }
-    
+
 } /* fim MostraNosRamos */
 
 /* ********************************************************** */
@@ -355,7 +355,7 @@ int grau(NO* tree){
 		if(tree->dir!=NULL && tree->esq== NULL) grau(tree->esq);
 		return 1;
 	}
-	
+
 } /* fim grau */
 
 
@@ -363,12 +363,12 @@ int grau(NO* tree){
 /*              Auxiliar para Calcular Altura                 */
 /* ********************************************************** */
 int maior(int a, int b){
-	
+
     if(a > b)
         return a;
     else
         return b;
-        
+
 } /* fim maior */
 
 
@@ -376,12 +376,12 @@ int maior(int a, int b){
 /*                  Mostrar Altura da Arvore                  */
 /* ********************************************************** */
 int altura(NO *tree){
-	
+
    if((tree == NULL) || (tree->esq == NULL && tree->dir == NULL))
        return 0;
    else
        return 1 + maior(altura(tree->esq), altura(tree->dir));
-       
+
 } /* fim altura */
 
 
@@ -389,69 +389,68 @@ int altura(NO *tree){
 /*                    Calcula Nivel                           */
 /* ********************************************************** */
 int calculaNivel(NO* tree){
-	
+
 	NO *aux=tree;
 	int lvl = 0;
-	
+
 	while(!estaVazia(aux)){
 		lvl++;
 		aux=aux->pai;
 	}
-	
+
 	return lvl;
-	
+
 } /* fim calculaNivel */
 
 
 /* ********************************************************** */
-/*      Mostra Profundidade, Altura, Nivel e Grau do nó       */
+/*      Mostra Profundidade, Altura, Nivel e Grau do nï¿½       */
 /* ********************************************************** */
 void alturaNoh(NO *tree, int noh){
-	
+
 	NO *aux = pesquisar(tree, noh);
 	int lvl = calculaNivel(aux);
 	int prof =  lvl-1;
 	int alt = altura(aux);
 	int gr = grau(aux);
-	
+
 	printf("Noh %d: \n Nivel: %d\n Profundidade: %d\n Altura: %d\n Grau: %d\n", noh,  lvl, prof, alt, gr);
-	
+
 } /* fim alturaNoh */
 
 
 /* ********************************************************** */
-/*             Auxilia a Representação da Arbore              */
+/*             Auxilia a Representaï¿½ï¿½o da Arbore              */
 /* ********************************************************** */
 int calculaQtdBarras(int nivel, int dado){
-	
+
   int espaco = 10, caracteres = sizeof(dado);
   return espaco-(nivel-caracteres);
-  
+
 } /* calculaQtdBarras */
 
 
 /* ********************************************************** */
-/*                  Representação por Barras                  */
+/*                  Representaï¿½ï¿½o por Barras                  */
 /* ********************************************************** */
 void exibeRep (NO *tree) {
-	
+
   int nivelNo, qtdBarras, i;
-  
+
   if (!estaVazia(tree)) {
-  	
+
     nivelNo = calculaNivel(tree);
     qtdBarras = calculaQtdBarras(nivelNo, tree->dado);
 
     for(i = 0; i < nivelNo; i++)
       printf(" ");
-    printf("%d", tree->dado);
+    printf("%d ", tree->dado);
     for(i = 0; i < qtdBarras; i++)
-      printf("_");
+      printf("-");
     printf("\n");
-    
+
     exibeRep(tree->esq);
     exibeRep(tree->dir);
   }
 
 } /* fim exibeRep */
-
