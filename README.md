@@ -15,92 +15,48 @@
   </thead>
   <tbody>
     <tr>
-      <td>
-        1
-      </td>
-      <td>
-
-      </td>
+      <td>1</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        2
-      </td>
-      <td>
-
-      </td>
+      <td>2</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        3
-      </td>
-      <td>
-
-      </td>
+      <td>3</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        4
-      </td>
-      <td>
-
-      </td>
+      <td>4</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        5
-      </td>
-      <td>
-
-      </td>
+      <td>5</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        6
-      </td>
-      <td>
-
-      </td>
+      <td>6</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        7
-      </td>
-      <td>
-
-      </td>
+      <td>7</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        8
-      </td>
-      <td>
-
-      </td>
+      <td>8</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        9
-      </td>
-      <td>
-
-      </td>
+      <td>9</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        10
-      </td>
-      <td>
-
-      </td>
+      <td>10</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        11
-      </td>
-      <td>
-
-      </td>
+      <td>11</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
