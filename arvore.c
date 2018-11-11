@@ -32,8 +32,6 @@ int main () {
 	    printf("\n");
 
 	    scanf("%d", &opcao);
-	    //fflush(stdin);
-
 	    switch(opcao){
 	    	case 1:
 	    		printf("Insira os no na arvore\n");
@@ -113,10 +111,6 @@ int main () {
 	      		printf("Saindo do sistema...\n");
 	      		break;
 	    }
-
-	    //printf("Pressione qualquer tecla para continuar...");
-	    //getch();
-	    //system("clear");
 	}
 
 } /* fim do main */
