@@ -20,43 +20,43 @@
     </tr>
     <tr>
       <td>2</td>
-      <td></td>
+      <td>Busca e exibição em Pré-Ordem</td>
     </tr>
     <tr>
       <td>3</td>
-      <td></td>
+      <td>Busca e exibição em Pós-Ordem</td>
     </tr>
     <tr>
       <td>4</td>
-      <td></td>
+      <td>Busca e exibição Em-Ordem</td>
     </tr>
     <tr>
       <td>5</td>
-      <td></td>
+      <td>Exibição de Nós Folha</td>
     </tr>
     <tr>
       <td>6</td>
-      <td></td>
+      <td>Exibição do Nó Raíz da Árvore</td>
     </tr>
     <tr>
       <td>7</td>
-      <td></td>
+      <td>Exibição dos Nós Ramo</td>
     </tr>
     <tr>
       <td>8</td>
-      <td></td>
+      <td>Exibição da Profundidade, Altura e Grau da árvore</td>
     </tr>
     <tr>
       <td>9</td>
-      <td></td>
+      <td>Exibição dos nós ascendentes e descendentes de um nó determinado pelo usuário</td>
     </tr>
     <tr>
       <td>10</td>
-      <td></td>
+      <td>Exibição da Profundidade, ALtura e Grau de um nó determinado pelo usuário</td>
     </tr>
     <tr>
       <td>11</td>
-      <td></td>
+      <td>Representação da árvore em formato de Barras</td>
     </tr>
   </tbody>
 </table>
