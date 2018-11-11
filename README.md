@@ -1,7 +1,5 @@
-# Requisitos para o Trabalho Prático
-
-<p>Desenvolver um programa que armazena e exibe informações de uma
-estrutura de árvore e/ou grafo.</p>
+# BST - Binary Search Tree
+<h2>Árvore Binária de Busca em C</h2>
 <p>
   As configurações da estrutura podem ser lidas via teclado, ou arquivo
   texto (desta forma, elabore um pequeno manual sobre como seu programa funciona: como ler as
