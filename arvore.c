@@ -36,14 +36,15 @@ int main () {
 	    	case 1:
 	    		printf("Insira os no na arvore\n");
   				printf("DIGITE 0 PARA PARAR A INSERCAO DE NOS\n");
-
-				while (num != 0) {
-				  	scanf("%d", &num);
-				  	if (num == 0) {
-				  		break;
-					}
-				  	inserir(&arvore, num);
-				}
+          scanf("%d",&num);
+          inserir(&arvore, num);
+        	while (num != 0) {
+        	  	scanf("%d", &num);
+        	  	if (num == 0) {
+        	  		break;
+          		}
+              inserir(&arvore, num);
+        	}
 				break;
 	      	case 2:
 		        printf("=================================\n");
@@ -100,7 +101,7 @@ int main () {
   				scanf("%d", &n2);
   				alturaNoh(arvore, n2);
   				printf("=================================\n\n");
-  				break;
+  				break;          num = 1;
 	      	case 11:
 	        	printf("=================================\n");
   				printf("Representação da árvore: \n");
