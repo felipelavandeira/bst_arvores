@@ -352,7 +352,7 @@ int grau(NO* tree){
 
 	if(!estaVazia(tree)){
 		if(tree->dir==NULL && tree->esq!= NULL) grau(tree->esq);
-		if(tree->dir!=NULL && tree->esq== NULL) grau(tree->esq);
+		if(tree->dir!=NULL && tree->esq== NULL) grau(tree->dir);
 		return 1;
 	}
 

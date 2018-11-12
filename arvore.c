@@ -36,7 +36,7 @@ int main () {
 	    	case 1:
 	    		printf("Insira os no na arvore\n");
   				printf("DIGITE 0 PARA PARAR A INSERCAO DE NOS\n");
-          scanf("%d", &num);
+
 				while (num != 0) {
 				  	scanf("%d", &num);
 				  	if (num == 0) {
